@@ -10,5 +10,3 @@ data:
   USER_SERVICE_URL: "http://user-service:3001"
   ACCOUNT_SERVICE_URL: "http://account-service:3002"
   TRANSACTION_SERVICE_URL: "http://transaction-service:3003"
-  LOAN_SERVICE_URL: "http://loan-service:3004"
-  NOTIFICATION_SERVICE_URL: "http://notification-service:3005"

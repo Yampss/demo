@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3000';
-
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: '',
   headers: { 'Content-Type': 'application/json' },
 });
 
@@ -47,20 +45,6 @@ export const transactionAPI = {
   getAccountTransactions: (accountId, params) => api.get(`/api/transactions/account/${accountId}`, { params }),
 };
 
-export const loanAPI = {
-  getTypes: () => api.get('/api/loans/types'),
-  apply: (data) => api.post('/api/loans/apply', data),
-  getMyLoans: () => api.get('/api/loans/my'),
-  getById: (id) => api.get(`/api/loans/${id}`),
-  repay: (id, data) => api.post(`/api/loans/${id}/repay`, data),
-  getRepayments: (id) => api.get(`/api/loans/${id}/repayments`),
-};
 
-export const notificationAPI = {
-  getMy: (params) => api.get('/api/notifications/my', { params }),
-  markRead: (id) => api.patch(`/api/notifications/${id}/read`),
-  markAllRead: () => api.patch('/api/notifications/read-all'),
-  delete: (id) => api.delete(`/api/notifications/${id}`),
-};
 
 export default api;

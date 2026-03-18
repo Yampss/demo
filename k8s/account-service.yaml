@@ -13,10 +13,9 @@ spec:
       labels:
         app: account-service
     spec:
-      nodeName: ip-172-31-28-168
       containers:
         - name: account-service
-          image: YOUR_DOCKERHUB_USERNAME/banking-account-service:latest
+          image: cazzzzz/banking-account-service:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3002
@@ -55,25 +54,7 @@ spec:
                 secretKeyRef:
                   name: banking-secrets
                   key: internal-api-key
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: 3002
-            initialDelaySeconds: 10
-            periodSeconds: 5
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 3002
-            initialDelaySeconds: 20
-            periodSeconds: 15
-          resources:
-            requests:
-              memory: "128Mi"
-              cpu: "100m"
-            limits:
-              memory: "256Mi"
-              cpu: "300m"
+
 ---
 apiVersion: v1
 kind: Service

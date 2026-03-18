@@ -104,24 +104,16 @@ demo/
 chmod +x build-and-push.sh k8s-deploy.sh
 
 # Build all images and push to DockerHub
-./build-and-push.sh <your-dockerhub-username>
+./build-and-push.sh
 ```
 
-> The frontend image is built with `REACT_APP_API_URL=http://banking.local`.
+
 > Change this if your domain is different.
 
-### Step 2 — Update K8s Image References
-
-The deploy script does this automatically. If you prefer manually:
+### Step 2 — Deploy to Kubernetes
 
 ```bash
-sed -i "s/YOUR_DOCKERHUB_USERNAME/yourusername/g" k8s/*.yaml
-```
-
-### Step 3 — Deploy to Kubernetes
-
-```bash
-./k8s-deploy.sh <your-dockerhub-username>
+./k8s-deploy.sh
 ```
 
 Or manually:
