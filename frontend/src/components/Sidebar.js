@@ -5,8 +5,6 @@ import { useAuth } from '../context/AuthContext';
 const navItems = [
   { id: 'dashboard', label: 'Dashboard', path: '/dashboard', icon: '⊞' },
   { id: 'transactions', label: 'Transactions', path: '/transactions', icon: '↔' },
-  { id: 'loans', label: 'Loans', path: '/loans', icon: '🏦' },
-  { id: 'notifications', label: 'Notifications', path: '/notifications', icon: '🔔' },
 ];
 
 const Sidebar = ({ active }) => {
