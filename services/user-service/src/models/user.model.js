@@ -37,7 +37,7 @@ const create = async ({ first_name, last_name, email, password_hash, phone, addr
   const result = await pool.query(
     `INSERT INTO users (first_name, last_name, email, password_hash, phone, address, date_of_birth)
      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id, first_name, last_name, email, phone, role, created_at`,
-    [first_name, last_name, email, password_hash, phone, address, date_of_birth]
+    [first_name, last_name, email, password_hash, phone || null, address || null, date_of_birth || null]
   );
   return result.rows[0];
 };
@@ -46,7 +46,7 @@ const update = async (id, { first_name, last_name, phone, address }) => {
   const result = await pool.query(
     `UPDATE users SET first_name=$1, last_name=$2, phone=$3, address=$4, updated_at=CURRENT_TIMESTAMP
      WHERE id=$5 RETURNING id, first_name, last_name, email, phone, address, role`,
-    [first_name, last_name, phone, address, id]
+    [first_name, last_name, phone || null, address || null, id]
   );
   return result.rows[0];
 };
