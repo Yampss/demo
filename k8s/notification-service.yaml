@@ -13,10 +13,11 @@ spec:
       labels:
         app: notification-service
     spec:
+      nodeName: ip-172-31-28-168
       containers:
         - name: notification-service
           image: YOUR_DOCKERHUB_USERNAME/banking-notification-service:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3005
           env:

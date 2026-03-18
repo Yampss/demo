@@ -13,10 +13,11 @@ spec:
       labels:
         app: user-service
     spec:
+      nodeName: ip-172-31-28-168
       containers:
         - name: user-service
           image: YOUR_DOCKERHUB_USERNAME/banking-user-service:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3001
           env:

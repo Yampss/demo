@@ -25,6 +25,7 @@ spec:
       labels:
         app: postgres
     spec:
+      nodeName: ip-172-31-28-168
       containers:
         - name: postgres
           image: postgres:15-alpine

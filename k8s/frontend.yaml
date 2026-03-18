@@ -13,10 +13,11 @@ spec:
       labels:
         app: frontend
     spec:
+      nodeName: ip-172-31-28-168
       containers:
         - name: frontend
           image: YOUR_DOCKERHUB_USERNAME/banking-frontend:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
           readinessProbe:

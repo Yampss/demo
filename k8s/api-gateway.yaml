@@ -13,10 +13,11 @@ spec:
       labels:
         app: api-gateway
     spec:
+      nodeName: ip-172-31-28-168
       containers:
         - name: api-gateway
           image: YOUR_DOCKERHUB_USERNAME/banking-api-gateway:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
           env:
