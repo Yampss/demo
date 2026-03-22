@@ -16,7 +16,7 @@ spec:
       containers:
         - name: frontend
           image: cazzzzz/banking-frontend:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
 
