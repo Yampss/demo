@@ -19,6 +19,23 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3002
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "10m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+          livenessProbe:
+            tcpSocket:
+              port: 3002
+            initialDelaySeconds: 60
+            periodSeconds: 20
+          readinessProbe:
+            tcpSocket:
+              port: 3002
+            initialDelaySeconds: 5
+            periodSeconds: 10
           env:
             - name: PORT
               value: "3002"
