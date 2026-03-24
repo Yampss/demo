@@ -19,13 +19,7 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3001
-          resources:
-            requests:
-              memory: "32Mi"
-              cpu: "10m"
-            limits:
-              memory: "256Mi"
-              cpu: "500m"
+
           livenessProbe:
             tcpSocket:
               port: 3001

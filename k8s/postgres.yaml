@@ -32,13 +32,7 @@ spec:
           image: postgres:15-alpine
           ports:
             - containerPort: 5432
-          resources:
-            requests:
-              memory: "32Mi"
-              cpu: "10m"
-            limits:
-              memory: "1Gi"
-              cpu: "1000m"
+
           livenessProbe:
             exec:
               command:
