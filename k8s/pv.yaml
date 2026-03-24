@@ -10,4 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: "" 
   hostPath:
-    path: /mnt/data/hipster-postgres
+    path: /mnt/data/try1
