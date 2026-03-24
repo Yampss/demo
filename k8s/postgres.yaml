@@ -33,13 +33,20 @@ spec:
           ports:
             - containerPort: 5432
 
+          startupProbe:
+            exec:
+              command:
+                - pg_isready
+                - -U
+                - postgres
+            failureThreshold: 30
+            periodSeconds: 10
           livenessProbe:
             exec:
               command:
                 - pg_isready
                 - -U
                 - postgres
-            initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
           readinessProbe:
@@ -48,7 +55,6 @@ spec:
                 - pg_isready
                 - -U
                 - postgres
-            initialDelaySeconds: 5
             periodSeconds: 5
             timeoutSeconds: 5
           env:

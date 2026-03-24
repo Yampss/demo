@@ -20,15 +20,20 @@ spec:
           ports:
             - containerPort: 80
 
+          startupProbe:
+            httpGet:
+              path: /
+              port: 80
+            failureThreshold: 30
+            periodSeconds: 10
           livenessProbe:
             tcpSocket:
               port: 80
-            initialDelaySeconds: 60
             periodSeconds: 20
           readinessProbe:
-            tcpSocket:
+            httpGet:
+              path: /
               port: 80
-            initialDelaySeconds: 5
             periodSeconds: 10
 
 ---

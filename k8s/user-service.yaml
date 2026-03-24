@@ -20,15 +20,20 @@ spec:
           ports:
             - containerPort: 3001
 
+          startupProbe:
+            httpGet:
+              path: /health
+              port: 3001
+            failureThreshold: 30
+            periodSeconds: 10
           livenessProbe:
             tcpSocket:
               port: 3001
-            initialDelaySeconds: 60
             periodSeconds: 20
           readinessProbe:
-            tcpSocket:
+            httpGet:
+              path: /health
               port: 3001
-            initialDelaySeconds: 5
             periodSeconds: 10
           env:
             - name: PORT
